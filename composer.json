@@ -1,5 +1,8 @@
 {
     "name": "liuhui/libweibo_biz",
+    "type": "library",
+    "homepage": "https://github.com/liuhui244671426/libweibo_biz",
+    "license": "MIT",
     "description": "php sdkSina Weibo open platform business php sdk",
     "authors": [
         {
@@ -8,8 +11,11 @@
         }
     ],
     "require": {
-	    "xiaosier/libweibo":"dev-master"	
+	    "xiaosier/libweibo":"dev-master"
 
+    },
+    "autoload": {
+        "files": ["biz_apis.php", "biz_sub_apis.php"]
     },
     "repositories": {
         "packagist": {
