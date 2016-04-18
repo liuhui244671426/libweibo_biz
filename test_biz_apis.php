@@ -10,10 +10,10 @@ require_once 'biz_apis.php';
 ini_set('date.timezone','Asia/Shanghai');
 set_time_limit(0);
 
-define('APPKEY', 3047579336);
-define('APPSECRET', 'd7d8e3ff23d32a1fad3df1f5c642e4b3');
-define('TOKEN', '2.005Xmn4G7b1P1D53300889490hGUeY'); //$token = '2.00DSk7ADCSnslC3c5a275207JZ_vEE';//文奇
-define('SUBID', '10592');//订阅id
+define('APPKEY', '');
+define('APPSECRET', '');
+define('TOKEN', '');
+define('SUBID', '');//订阅id
 
 $object = new biz_apis(APPKEY, APPSECRET, TOKEN);
 $keyword = urlencode('PHPER');
@@ -58,7 +58,7 @@ $sub_uids = '';
 //$ret = $object->search_statuses_historical_download(APPKEY, $taskID, time(), $secret_key);
 
 //$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, $sub_keywords);
-$ret = $object->datapush_status(SUBID, APPKEY);
+//$ret = $object->datapush_status(SUBID, APPKEY);
 
 
 

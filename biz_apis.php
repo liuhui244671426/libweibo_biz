@@ -10,7 +10,7 @@
  * @copyright copyright(2016) weibo.com all rights reserved
  */
 
-require_once 'libweibo/saetv2.ex.class.php';
+require_once 'vendor/xiaosier/libweibo/saetv2.ex.class.php';
 
 
 class biz_apis

@@ -1,0 +1,20 @@
+{
+    "name": "liuhui/libweibo_biz",
+    "description": "php sdkSina Weibo open platform business php sdk",
+    "authors": [
+        {
+            "name": "liu hui9",
+            "email": "liuhui9@staff.sina.com.cn"
+        }
+    ],
+    "require": {
+	    "xiaosier/libweibo":"dev-master"	
+
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
