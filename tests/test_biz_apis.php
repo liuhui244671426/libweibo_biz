@@ -6,14 +6,13 @@
  * @version 16/3/22
  * @copyright copyright(2016) weibo.com all rights reserved
  */
-require_once 'biz_apis.php';
+require_once '../biz_apis.php';
+require_once '../config.php';
+
 ini_set('date.timezone','Asia/Shanghai');
 set_time_limit(0);
 
-define('APPKEY', '');
-define('APPSECRET', '');
-define('TOKEN', '');
-define('SUBID', '');//订阅id
+
 
 $object = new biz_apis(APPKEY, APPSECRET, TOKEN);
 $keyword = urlencode('PHPER');
@@ -40,7 +39,7 @@ $sub_uids = '';
 //ok
 //$ret = $object->statuses_user_timeline_batch($uid);
 //ok
-//$ret = $object->place_user_timeline_other($uid);
+$ret = $object->place_user_timeline_other($uid);
 //ok
 //$ret = $object->comments_show_all($weiboID);
 //ok
