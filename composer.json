@@ -15,7 +15,7 @@
 
     },
     "autoload": {
-        "files": ["biz_apis.php", "biz_sub_apis.php"]
+        "files": ["biz_apis.php"]
     },
     "repositories": {
         "packagist": {
