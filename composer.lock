@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3f2a42027912fff919cc32e2511faa7e",
-    "content-hash": "611f7064b9b02807587313393e46b5d0",
+    "hash": "84b5483015e3a46323e1665dc39a4d4a",
+    "content-hash": "b49520f3deb5cdc70b58803329988454",
     "packages": [
         {
             "name": "xiaosier/libweibo",

@@ -1,13 +1,13 @@
 {
     "name": "liuhui/libweibo_biz",
     "type": "library",
+    "description": "php sdkSina Weibo open platform business php sdk",
+    "keywords": ["sdk","weibo"],
     "homepage": "https://github.com/liuhui244671426/libweibo_biz",
     "license": "MIT",
-    "description": "php sdkSina Weibo open platform business php sdk",
-    "version":  "0.0.2",
     "authors": [
         {
-            "name": "liu hui9",
+            "name": "liuhui",
             "email": "liuhui9@staff.sina.com.cn"
         }
     ],
