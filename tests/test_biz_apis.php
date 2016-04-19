@@ -7,7 +7,6 @@
  * @copyright copyright(2016) weibo.com all rights reserved
  */
 require_once '../biz_apis.php';
-require_once '../config.php';
 
 ini_set('date.timezone','Asia/Shanghai');
 set_time_limit(0);
