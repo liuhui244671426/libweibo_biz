@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 商业数据接口 demo
+ * 商业数据接口 SDK for PHP
  *
  * 错误代码说明: http://open.weibo.com/wiki/Error_code
  *
@@ -15,13 +15,15 @@ class biz_apis
 {
     const C_API_2_URL = 'https://c.api.weibo.com/2/';
     const C_API_1_URL = 'https://c.api.weibo.com/';//订阅接口还未切换过来
-    //private $_since_id = false;//订阅-上次连接断开时的数据ID
 
     public function __construct($appkey, $appsecret, $token)
     {
         $this->oauth = new SaeTOAuthV2($appkey, $appsecret, $token);
         $this->oauth->host = self::C_API_2_URL;
-        $this->oauth->debug = true;
+    }
+
+    public function set_debug($bool = false){
+        return $this->oauth->debug = $bool;
     }
 
     /*搜索最近数据（收费）*/
