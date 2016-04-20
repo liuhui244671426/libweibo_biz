@@ -66,7 +66,7 @@ $ret = $object->place_user_timeline_other($uid);
 
 
 
-//var_dump($ret);
+var_dump($ret);
 
 
 die;
