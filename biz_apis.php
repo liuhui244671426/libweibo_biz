@@ -10,8 +10,6 @@
  * @copyright copyright(2016) weibo.com all rights reserved
  */
 
-require_once 'vendor/autoload.php';
-require_once './config.php';
 
 class biz_apis
 {

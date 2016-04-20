@@ -1,12 +1,16 @@
 <?php
 /**
- *
+ * 测试
  *
  * author liuhui9<liuhui9@staff.sina.com.cn>
  * @version 16/3/22
  * @copyright copyright(2016) weibo.com all rights reserved
  */
-require_once '../biz_apis.php';
+define('CURRENT_PATH', realpath(__DIR__ . '/'));
+
+require_once CURRENT_PATH . '/../vendor/autoload.php';
+require_once CURRENT_PATH . '/../biz_apis.php';
+require_once CURRENT_PATH . '/./config.php';
 
 ini_set('date.timezone','Asia/Shanghai');
 set_time_limit(0);
