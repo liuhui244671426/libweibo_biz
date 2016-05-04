@@ -379,8 +379,10 @@ class biz_apis
      * 订阅关键词、用户。
      *
      * wiki:http://open.weibo.com/wiki/C/2/subscribe/update_subscribe
+     * @param string $add_blocked_uids 需要屏蔽的 uids ,默认不自动开启,通知审核人员开启
      * */
-    public function subscribe_update_subscribe($subid, $source, $access_token = false, $add_keywords = false, $del_keywords = false, $add_uids = false, $del_uids = false, $_version=1)
+    public function subscribe_update_subscribe($subid, $source, $access_token = false, $add_keywords = false, $del_keywords = false,
+                                               $add_uids = false, $del_uids = false, $add_blocked_uids = false, $del_blocked_uids = false, $_version=1)
     {
         $params = array(
             'source' => $source,
@@ -390,6 +392,8 @@ class biz_apis
             'del_keywords'  => $del_keywords,
             'add_uids' =>  $add_uids,
             'del_uids' =>  $del_uids,
+            'add_blocked_uids' => $add_blocked_uids,//屏蔽 uid
+            'del_blocked_uids' => $del_blocked_uids,
         );
         $this->oauth->host = ($_version == 1)
             ?   self::C_API_1_URL  :   self::C_API_2_URL;
@@ -398,6 +402,21 @@ class biz_apis
         return $ret;
     }
 
+    /**
+     * 查看订阅信息
+     * //todo 网络问题,没走通
+     * */
+    public function subscribe_get_subscribe($subid){
+        $params = array(
+            'subid' => $subid,
+        );
+        $this->oauth->debug = true;
+        $this->oauth->host = 'http://i.open.t.sina.com.cn/';
+        $this->oauth->format = 'php';
+        $ret = $this->oauth->get('subscribe/get_subscribe', $params);
+        return $ret;
+
+    }
     /**
      * 进行连接，接收微博数据。
      *
@@ -416,7 +435,10 @@ class biz_apis
         $params = $this->rid_false_for_array($params);
         $url = $this->oauth->host.'datapush/status';
 
-        $ret = $this->push_method($url, $params);
+        include_once 'biz_subscribe.php';
+        $sub_obj = new biz_subscribe();
+
+        $ret = $sub_obj->push_method($url, $params);
 
         //debug code
 //        require_once 'libs/httpWrap.php';
@@ -429,68 +451,10 @@ class biz_apis
         //var_dump($ret);
         //return $ret;
     }
-    public function push_method($url, $params){
-        $parse_url = parse_url($url);
-        $host = $parse_url['host'];
-        $path = $parse_url['path'];
-        $query = http_build_query($params);
-
-        $fp = fsockopen($host, 80, $errno, $errstr, 30);
-        stream_set_timeout($fp, 30);
-        $ret = '';
-        if (!$fp) {
-            echo "$errstr ($errno)<br />\n";
-        } else {
-            $requestHeader = "GET {$path}?{$query} HTTP/1.1\r\n";
-            $requestHeader .= "Host: {$host}\r\n";
-            $requestHeader .= "Connection: Close\r\n\r\n";
-            //fwrite($fp, $requestHeader);
-            fputs($fp, $requestHeader);
-            stream_set_blocking($fp, true);//阻塞
-
-            $responseHeader = '';
-            $responseContent = '';
-            $chunk_size = (integer)hexdec(fgetss( $fp, 4096 ) );
-            $i = 1;//小切片
-            $ii = 1;//大切片
-            while (!feof($fp) && $chunk_size > 0) {
-                if($i <= 10){
-                    $responseContent .= fgetss($fp, 4096);
-                    $i++;
-                } else {
-                    $i = 1;
-                    //var_dump($responseContent);
-                    $content = $this->unchunkHttp11Json($responseContent);
-
-                    var_dump($content);
-                    $content = '';
-                    $ii++;
-                    if($ii == 5)die;
-                }
-
-            }
-            fclose($fp);
-        }
-        return $ret;
-    }
 
 
-    function unchunkHttp11Json($data) {
-        $outData = array();
-        $content = explode("\r\n", $data);
 
-        foreach ($content as $k => $v) {
-            $chunk = json_decode($v, true);
-            //is json string
-            if(json_last_error() == JSON_ERROR_NONE){
-                if(!empty($chunk)){
-                    $outData[] = $chunk;
-                }
-            }
 
-        }
-        return $outData;
-    }
     /**
      * 将数组中 false 字段删除
      * */

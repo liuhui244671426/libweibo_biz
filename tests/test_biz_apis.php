@@ -30,6 +30,7 @@ $secret_key = '9efa06a6f23d0ddb7217';
 $sub_keywords = '阿里巴巴,楼市,股市';
 $sub_uids = '';
 
+//$object->oauth->debug=true;
 //ok
 //$ret = $object->search_statuses_limited($keyword);
 //ok
@@ -42,7 +43,7 @@ $sub_uids = '';
 //ok
 //$ret = $object->statuses_user_timeline_batch($uid);
 //ok
-$ret = $object->place_user_timeline_other($uid);
+//$ret = $object->place_user_timeline_other($uid);
 //ok
 //$ret = $object->comments_show_all($weiboID);
 //ok
@@ -59,7 +60,11 @@ $ret = $object->place_user_timeline_other($uid);
 //$ret = $object->search_statuses_historical_check(APPKEY, $taskID, time(), $secret_key);
 //$ret = $object->search_statuses_historical_download(APPKEY, $taskID, time(), $secret_key);
 
-//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, $sub_keywords);
+//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, false, false, false, false, '5674554136');
+$ret = $object->subscribe_update_subscribe(SUBID, APPKEY);
+
+//$ret = $object->subscribe_get_subscribe(SUBID);
+
 //$ret = $object->datapush_status(SUBID, APPKEY);
 
 
