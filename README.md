@@ -4,8 +4,9 @@
  <a href="http://open.weibo.com" target="_blank">官网链接</a>
 
 ## composer 安装(推荐)
-
- 编辑 composer.json 添加如下
+ composer 安装请参考,<a href="http://docs.phpcomposer.com/00-intro.html" target="_blank">链接</a>
+ 
+ 安装后编辑 composer.json 添加内容
 
 <pre>
 "require": {
@@ -48,4 +49,4 @@ echo "hello biz_weibo";
 
 ## 注意事项
 
-<pre>此SDK 依赖 xiaosier/libweibo 的包, <a href="https://github.com/xiaosier/libweibo">链接</a></pre>
+<pre>此SDK 依赖 xiaosier/libweibo 包, <a href="https://github.com/xiaosier/libweibo">链接</a></pre>
