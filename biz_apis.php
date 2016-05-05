@@ -9,8 +9,6 @@
  * @version 16/3/17
  * @copyright copyright(2016) weibo.com all rights reserved
  */
-
-
 class biz_apis
 {
     const C_API_2_URL = 'https://c.api.weibo.com/2/';
@@ -22,9 +20,11 @@ class biz_apis
         $this->oauth->host = self::C_API_2_URL;
     }
 
-    public function set_debug($bool = false){
+    public function set_debug($bool = false)
+    {
         return $this->oauth->debug = $bool;
     }
+    #################### 商业数据API ####################
 
     /*搜索最近数据（收费）*/
     /**
@@ -331,7 +331,7 @@ class biz_apis
         $ret = $this->oauth->get('search/statuses/historical/check', $params);
         return $ret;
     }
-    
+
     /**
      * 下载任务执行后的结果数据
      * wiki:http://open.weibo.com/wiki/C/2/search/statuses/historical/download
@@ -363,9 +363,9 @@ class biz_apis
     public function users_show_batch_other($source, $access_token, $uids)
     {
         $params = array(
-            'source' => $source,
+            'source'       => $source,
             'access_token' => $access_token,
-            'uids' => $uids
+            'uids'         => $uids,
         );
         $ret = $this->oauth->get('users/show_batch/other', $params);
         return $ret;
@@ -382,9 +382,9 @@ class biz_apis
     public function tags_tags_batch_other($source, $access_token, $uids)
     {
         $params = array(
-            'source' => $source,
+            'source'       => $source,
             'access_token' => $access_token,
-            'uids' => $uids
+            'uids'         => $uids,
         );
         $ret = $this->oauth->get('tags/tags_batch/other', $params);
         return $ret;
@@ -401,9 +401,9 @@ class biz_apis
     public function users_counts_batch_other($source, $access_token, $uids)
     {
         $params = array(
-            'source' => $source,
+            'source'       => $source,
             'access_token' => $access_token,
-            'uids' => $uids
+            'uids'         => $uids,
         );
         $ret = $this->oauth->get('users/counts_batch/other', $params);
         return $ret;
@@ -445,21 +445,21 @@ class biz_apis
      * @param string $add_blocked_uids 需要屏蔽的 uids ,默认不自动开启,通知审核人员开启
      * */
     public function subscribe_update_subscribe($subid, $source, $access_token = false, $add_keywords = false, $del_keywords = false,
-                                               $add_uids = false, $del_uids = false, $add_blocked_uids = false, $del_blocked_uids = false, $_version=1)
+                                               $add_uids = false, $del_uids = false, $add_blocked_uids = false, $del_blocked_uids = false, $_version = 1)
     {
         $params = array(
-            'source' => $source,
-            'access_token' => $access_token,
-            'subid' =>  $subid,
-            'add_keywords'  => $add_keywords,
-            'del_keywords'  => $del_keywords,
-            'add_uids' =>  $add_uids,
-            'del_uids' =>  $del_uids,
+            'source'           => $source,
+            'access_token'     => $access_token,
+            'subid'            => $subid,
+            'add_keywords'     => $add_keywords,
+            'del_keywords'     => $del_keywords,
+            'add_uids'         => $add_uids,
+            'del_uids'         => $del_uids,
             'add_blocked_uids' => $add_blocked_uids,//屏蔽 uid
             'del_blocked_uids' => $del_blocked_uids,
         );
         $this->oauth->host = ($_version == 1)
-            ?   self::C_API_1_URL  :   self::C_API_2_URL;
+            ? self::C_API_1_URL : self::C_API_2_URL;
         $params = $this->rid_false_for_array($params);
         $ret = $this->oauth->post('subscribe/update_subscribe', $params, true);
         return $ret;
@@ -469,7 +469,8 @@ class biz_apis
      * 查看订阅信息
      * //todo 网络问题,没走通
      * */
-    public function subscribe_get_subscribe($subid){
+    public function subscribe_get_subscribe($subid)
+    {
         $params = array(
             'subid' => $subid,
         );
@@ -480,23 +481,24 @@ class biz_apis
         return $ret;
 
     }
+
     /**
      * 进行连接，接收微博数据。
      *
      * @param int $_version 暂时只支持c.api.weibo.com
      * wiki:http://open.weibo.com/wiki/C/2/datapush/status
      * */
-    public function datapush_status($subid, $source = false, $since_id = false, $_version=1)
+    public function datapush_status($subid, $source = false, $since_id = false, $_version = 1)
     {
         $params = array(
-            'subid' =>  $subid,
-            'source' => $source,
-            'since_id'  => $since_id,
+            'subid'    => $subid,
+            'source'   => $source,
+            'since_id' => $since_id,
         );
         $this->oauth->host = ($_version == 1)
-            ?   'http://c.api.weibo.com/'  :   self::C_API_2_URL;
+            ? 'http://c.api.weibo.com/' : self::C_API_2_URL;
         $params = $this->rid_false_for_array($params);
-        $url = $this->oauth->host.'datapush/status';
+        $url = $this->oauth->host . 'datapush/status';
 
         include_once 'biz_subscribe.php';
         $sub_obj = new biz_subscribe();
@@ -517,6 +519,30 @@ class biz_apis
 
     /*订阅服务（收费）*/
 
+
+    ####################通用API（均免费）####################
+    /* 微博内容读取接口 */
+
+    /**
+     * 获取最新的公共微博。
+     *
+     * @param int $base_app 是否只获取当前应用的数据。0为否（所有数据），1为是（仅当前应用），默认为0。
+     * @return array
+     * wiki: http://open.weibo.com/wiki/C/2/statuses/public_timeline/biz
+     * */
+    public function statuses_public_timeline_biz($source, $access_token, $count = 50, $page = 1, $base_app = 0)
+    {
+        $params = array(
+            'source'       => $source,
+            'access_token' => $access_token,
+            'count'        => $count,
+            'page'         => $page,
+            'base_app'     => $base_app,
+        );
+        $ret = $this->oauth->get('statuses/public_timeline/biz', $params);
+        return $ret;
+    }
+    /* 微博内容读取接口 */
 
     /**
      * 将数组中 false 字段删除

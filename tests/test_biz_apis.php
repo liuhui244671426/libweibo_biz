@@ -73,7 +73,9 @@ $sub_uids = '';
 //ok
 //$ret = $object->tags_tags_batch_other(APPKEY, TOKEN, $uid);
 //ok
-$ret = $object->users_counts_batch_other(APPKEY, TOKEN, $uid1);
+//$ret = $object->users_counts_batch_other(APPKEY, TOKEN, $uid1);
+//ok
+$ret = $object->statuses_public_timeline_biz(APPKEY, TOKEN, 1);
 
 
 var_dump($ret);
