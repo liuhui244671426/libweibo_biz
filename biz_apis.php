@@ -4,8 +4,8 @@
  * 商业数据接口 SDK for PHP
  *
  * 错误代码说明: http://open.weibo.com/wiki/Error_code
- *
- * author liuhui9<liuhui9@staff.sina.com.cn>
+ * wiki: http://open.weibo.com/wiki/Business_API文档#.E5.BE.AE.E5.8D.9A.E7.94.A8.E6.88.B7.E6.95.B0.E6.8D.AE.EF.BC.88.E5.85.8D.E8.B4.B9.EF.BC.89
+ * @author liuhui9<liuhui9@staff.sina.com.cn>
  * @version 16/3/17
  * @copyright copyright(2016) weibo.com all rights reserved
  */
