@@ -21,6 +21,7 @@ $object = new biz_apis(APPKEY, APPSECRET, TOKEN);
 $keyword = urlencode('PHPER');
 $weiboID = '3953931363797697';
 $uid = 1748248662;
+$uid1 = 1571420880;//猪头哥哥
 $stime = strtotime('2012-03-21 00:00:00').'000';
 $etime = strtotime('2012-03-22 00:00:00').'000';
 //任务参数
@@ -59,15 +60,15 @@ $sub_uids = '';
 //ok
 //$ret = $object->search_statuses_historical_check(APPKEY, $taskID, time(), $secret_key);
 //$ret = $object->search_statuses_historical_download(APPKEY, $taskID, time(), $secret_key);
-
+//ok
 //$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, false, false, false, false, '5674554136');
-$ret = $object->subscribe_update_subscribe(SUBID, APPKEY);
+//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY);
 
 //$ret = $object->subscribe_get_subscribe(SUBID);
 
 //$ret = $object->datapush_status(SUBID, APPKEY);
 
-
+$ret = $object->users_show_batch_other(APPKEY, TOKEN, $uid1);
 
 
 

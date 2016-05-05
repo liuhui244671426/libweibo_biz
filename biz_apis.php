@@ -352,8 +352,29 @@ class biz_apis
     }
     /*检索历史全量数据（收费）*/
 
+    /*微博用户数据（免费）*/
     /**
+     * 批量获取其他用户的基本信息。
      *
+     * @param string $uids 需要查询的用户ID，用半角逗号分隔，一次最多50个。
+     *
+     * wiki: http://open.weibo.com/wiki/C/2/users/show_batch/other
+     * */
+    public function users_show_batch_other($source, $access_token, $uids)
+    {
+        $params = array(
+            'source' => $source,
+            'access_token' => $access_token,
+            'uids' => $uids
+        );
+        $ret = $this->oauth->get('users/show_batch/other', $params);
+        return $ret;
+
+    }
+    /*微博用户数据（免费）*/
+
+    /**
+     * 上传图片并发布一条微博。
      * wiki:http://open.weibo.com/wiki/C/2/statuses/upload/biz
      * */
     public function statuses_upload_biz($status, $pic, $visible = 0, $list_id = false, $lat = 0.0, $long = 0.0,
@@ -374,7 +395,9 @@ class biz_apis
         $ret = $this->oauth->post('statuses/upload/biz', $params, true);
         return $ret;
     }
-    
+
+    /*订阅服务（收费）*/
+
     /**
      * 订阅关键词、用户。
      *
@@ -452,7 +475,7 @@ class biz_apis
         //return $ret;
     }
 
-
+    /*订阅服务（收费）*/
 
 
     /**
