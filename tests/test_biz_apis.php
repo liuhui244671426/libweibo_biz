@@ -63,7 +63,7 @@ $sub_uids = '';
 //ok
 //$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, false, false, false, false, '5674554136');
 //$ret = $object->subscribe_update_subscribe(SUBID, APPKEY);
-
+//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, '互联网');
 //$ret = $object->subscribe_get_subscribe(SUBID);
 
 //$ret = $object->datapush_status(SUBID, APPKEY);
