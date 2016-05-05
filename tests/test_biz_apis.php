@@ -67,6 +67,7 @@ $sub_uids = '';
 //$ret = $object->subscribe_get_subscribe(SUBID);
 
 //$ret = $object->datapush_status(SUBID, APPKEY);
+$ret = $object->datapush_comment(APPKEY, TOKEN, SUBID);
 
 //ok
 //$ret = $object->users_show_batch_other(APPKEY, TOKEN, $uid1);
@@ -75,7 +76,7 @@ $sub_uids = '';
 //ok
 //$ret = $object->users_counts_batch_other(APPKEY, TOKEN, $uid1);
 //ok
-$ret = $object->statuses_public_timeline_biz(APPKEY, TOKEN, 1);
+//$ret = $object->statuses_public_timeline_biz(APPKEY, TOKEN, 1);
 
 
 var_dump($ret);

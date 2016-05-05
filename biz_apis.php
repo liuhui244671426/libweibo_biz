@@ -505,18 +505,36 @@ class biz_apis
 
         $ret = $sub_obj->push_method($url, $params);
 
-        //debug code
-//        require_once 'libs/httpWrap.php';
-//        $obj = new HttpWrap();
-//        $params = http_build_query($params);
-//        $url .= '?'.$params;
-//        $ret = $obj->init($url);
-
-
         //var_dump($ret);
         //return $ret;
     }
+    /**
+     * 调用该接口进行连接，接收评论数据。
+     * @param int $_version 请使用url: http://c.api.weibo.com/datapush/comment 请求该接口。url:https://c.api.weibo.com/2/datapush/comment.json 暂不支持；
+     *
+     * "errorInfo":"calling the wrong API","errorCode":211107 一个 subid 只能使用status或comment中的一个功能,需要换一个 subid
+     * wiki: http://open.weibo.com/wiki/C/2/datapush/comment
+     * */
+    public function datapush_comment($source , $access_token, $subid, $since_id = false, $_version=1)
+    {
+        $params = array(
+            'source' => $source,
+            'access_token' => $access_token,
+            'subid' => $subid,
+            'since_id' => $since_id
+        );
+        $params = $this->rid_false_for_array($params);
 
+        $this->oauth->host = ($_version == 1)
+            ? 'http://c.api.weibo.com/' : self::C_API_2_URL;
+        $url = $this->oauth->host . 'datapush/comment';
+
+        include_once 'biz_subscribe.php';
+        $sub_obj = new biz_subscribe();
+
+        $ret = $sub_obj->push_method($url, $params);
+
+    }
     /*订阅服务（收费）*/
 
 
@@ -542,6 +560,8 @@ class biz_apis
         $ret = $this->oauth->get('statuses/public_timeline/biz', $params);
         return $ret;
     }
+
+    //todo 待完善
     /* 微博内容读取接口 */
 
     /**
