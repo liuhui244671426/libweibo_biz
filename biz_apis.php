@@ -504,9 +504,7 @@ class biz_apis
         $sub_obj = new biz_subscribe();
 
         $ret = $sub_obj->push_method($url, $params);
-
-        //var_dump($ret);
-        //return $ret;
+        return $ret;
     }
 
     /**
@@ -534,7 +532,7 @@ class biz_apis
         $sub_obj = new biz_subscribe();
 
         $ret = $sub_obj->push_method($url, $params);
-
+        return $ret;
     }
     /*订阅服务（收费）*/
 

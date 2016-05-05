@@ -63,7 +63,7 @@ $sub_uids = '';
 //ok
 //$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, false, false, false, false, '5674554136');
 //$ret = $object->subscribe_update_subscribe(SUBID, APPKEY);
-//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, '互联网');
+//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, '魏则西');
 //$ret = $object->subscribe_get_subscribe(SUBID);
 
 //$ret = $object->datapush_status(SUBID, APPKEY);
@@ -79,7 +79,7 @@ $ret = $object->datapush_comment(APPKEY, TOKEN, SUBID);
 //$ret = $object->statuses_public_timeline_biz(APPKEY, TOKEN, 1);
 
 
-var_dump($ret);
-
+//var_dump($ret);
+print_r($ret);
 
 die;

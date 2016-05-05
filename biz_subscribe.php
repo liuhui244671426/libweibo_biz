@@ -33,34 +33,45 @@ class biz_subscribe
             $chunk_size = (integer)hexdec(fgetss( $fp, 4096 ) );
             $i = 1;//小切片
             $ii = 1;//大切片
+            $content = array();
             while (!feof($fp) && $chunk_size > 0) {
-                if($i <= 10){
+                if($i <= 20){
                     $responseContent .= fgetss($fp, 4096);
-                    echo $responseContent;
+                    //echo $responseContent;
                     $i++;
                 } else {
                     $i = 1;
-                    //var_dump($responseContent);
-                    $content = $this->unchunkHttp11Json($responseContent);
 
-                    var_dump($content);
-                    $content = '';
+                    $responseContent = $this->parseHttpChunk2Array($responseContent);
+                    $content[$ii] = $responseContent;
+
+                    $responseContent = '';
+
                     $ii++;
-                    if($ii == 5)die;
+                    if($ii > 5){
+                        break;
+                    }
                 }
-
             }
             fclose($fp);
+            //var_dump($content);
+            return $content;
         }
-        return $ret;
+
     }
 
-    public function unchunkHttp11Json($data) {
+    /**
+     * 将 chunked 的 json 串解析成 array
+     * */
+    public function parseHttpChunk2Array($data) {
         $outData = array();
         $content = explode("\r\n", $data);
 
         foreach ($content as $k => $v) {
             $chunk = json_decode($v, true);
+            if(!is_array($chunk)){
+                continue;
+            }
             //is json string
             if(json_last_error() == JSON_ERROR_NONE){
                 if(!empty($chunk)){
