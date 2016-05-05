@@ -391,6 +391,26 @@ class biz_apis
 
     }
 
+    /**
+     * 批量获取用户的粉丝数、关注数、微博数。
+     *
+     * @param string $uids 需要查询的用户ID，用半角逗号分隔，一次最多50个。
+     * @return array
+     * wiki: http://open.weibo.com/wiki/C/2/users/counts_batch/other
+     * */
+    public function users_counts_batch_other($source, $access_token, $uids)
+    {
+        $params = array(
+            'source' => $source,
+            'access_token' => $access_token,
+            'uids' => $uids
+        );
+        $ret = $this->oauth->get('users/counts_batch/other', $params);
+        return $ret;
+
+    }
+
+
     /*微博用户数据（免费）*/
 
     /**
