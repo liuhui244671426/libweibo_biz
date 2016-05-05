@@ -68,8 +68,9 @@ $sub_uids = '';
 
 //$ret = $object->datapush_status(SUBID, APPKEY);
 
-$ret = $object->users_show_batch_other(APPKEY, TOKEN, $uid1);
-
+//ok
+//$ret = $object->users_show_batch_other(APPKEY, TOKEN, $uid1);
+$ret = $object->tags_tags_batch_other(APPKEY, TOKEN, $uid);
 
 
 var_dump($ret);

@@ -357,7 +357,7 @@ class biz_apis
      * 批量获取其他用户的基本信息。
      *
      * @param string $uids 需要查询的用户ID，用半角逗号分隔，一次最多50个。
-     *
+     * @return array
      * wiki: http://open.weibo.com/wiki/C/2/users/show_batch/other
      * */
     public function users_show_batch_other($source, $access_token, $uids)
@@ -371,6 +371,26 @@ class biz_apis
         return $ret;
 
     }
+
+    /**
+     * 批量获取用户标签。
+     *
+     * @param string $uids 需要查询的用户ID，用半角逗号分隔，一次最多50个。
+     * @return array
+     * wiki: http://open.weibo.com/wiki/C/2/tags/tags_batch/other
+     * */
+    public function tags_tags_batch_other($source, $access_token, $uids)
+    {
+        $params = array(
+            'source' => $source,
+            'access_token' => $access_token,
+            'uids' => $uids
+        );
+        $ret = $this->oauth->get('tags/tags_batch/other', $params);
+        return $ret;
+
+    }
+
     /*微博用户数据（免费）*/
 
     /**
