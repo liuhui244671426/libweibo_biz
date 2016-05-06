@@ -45,7 +45,18 @@ echo "hello biz_weibo";
 </pre>
 
 ##change log
-添加收费 api
+<pre>
+1.搜索最近数据API
+
+2.微博内容数据API
+
+3.检索历史全量数据API
+
+4.微博用户数据API
+
+5.订阅服务API
+
+</pre>
 
 ## 注意事项
 
