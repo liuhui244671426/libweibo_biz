@@ -288,8 +288,12 @@ class biz_apis
     /**
      * 创建检索历史数据任务。
      * wiki:http://open.weibo.com/wiki/C/2/search/statuses/historical/create
+     *
+     * @param int $starttime    搜索范围起始时间，取值为时间戳（精确到毫秒）。
+     * @param int $endtime      搜索范围结束时间，取值为时间戳（精确到毫秒，最晚不能晚过昨天的最后一秒）。
      * */
-    public function search_statuses_historical_create($q, $ids = false, $province = false, $city = false, $starttime = false, $endtime = false, $type = false, $hasv = false, $onlynum = 100)
+    public function search_statuses_historical_create($q, $ids = false, $province = false, $city = false, $starttime = false,
+                                                      $endtime = false, $type = false, $hasv = false, $onlynum = 100)
     {
         $params = array(
             'q'         => $q,
@@ -360,11 +364,9 @@ class biz_apis
      * @return array
      * wiki: http://open.weibo.com/wiki/C/2/users/show_batch/other
      * */
-    public function users_show_batch_other($source, $access_token, $uids)
+    public function users_show_batch_other($uids)
     {
         $params = array(
-            'source'       => $source,
-            'access_token' => $access_token,
             'uids'         => $uids,
         );
         $ret = $this->oauth->get('users/show_batch/other', $params);
@@ -379,11 +381,9 @@ class biz_apis
      * @return array
      * wiki: http://open.weibo.com/wiki/C/2/tags/tags_batch/other
      * */
-    public function tags_tags_batch_other($source, $access_token, $uids)
+    public function tags_tags_batch_other($uids)
     {
         $params = array(
-            'source'       => $source,
-            'access_token' => $access_token,
             'uids'         => $uids,
         );
         $ret = $this->oauth->get('tags/tags_batch/other', $params);
@@ -398,11 +398,9 @@ class biz_apis
      * @return array
      * wiki: http://open.weibo.com/wiki/C/2/users/counts_batch/other
      * */
-    public function users_counts_batch_other($source, $access_token, $uids)
+    public function users_counts_batch_other($uids)
     {
         $params = array(
-            'source'       => $source,
-            'access_token' => $access_token,
             'uids'         => $uids,
         );
         $ret = $this->oauth->get('users/counts_batch/other', $params);
@@ -444,12 +442,10 @@ class biz_apis
      * wiki:http://open.weibo.com/wiki/C/2/subscribe/update_subscribe
      * @param string $add_blocked_uids 需要屏蔽的 uids ,默认不自动开启,通知审核人员开启
      * */
-    public function subscribe_update_subscribe($subid, $source, $access_token = false, $add_keywords = false, $del_keywords = false,
+    public function subscribe_update_subscribe($subid, $add_keywords = false, $del_keywords = false,
                                                $add_uids = false, $del_uids = false, $add_blocked_uids = false, $del_blocked_uids = false, $_version = 1)
     {
         $params = array(
-            'source'           => $source,
-            'access_token'     => $access_token,
             'subid'            => $subid,
             'add_keywords'     => $add_keywords,
             'del_keywords'     => $del_keywords,
@@ -488,11 +484,10 @@ class biz_apis
      * @param int $_version 暂时只支持c.api.weibo.com
      * wiki:http://open.weibo.com/wiki/C/2/datapush/status
      * */
-    public function datapush_status($subid, $source = false, $since_id = false, $_version = 1)
+    public function datapush_status($subid, $since_id = false, $_version = 1)
     {
         $params = array(
             'subid'    => $subid,
-            'source'   => $source,
             'since_id' => $since_id,
         );
         $this->oauth->host = ($_version == 1)
@@ -514,11 +509,9 @@ class biz_apis
      * "errorInfo":"calling the wrong API","errorCode":211107 一个 subid 只能使用status或comment中的一个功能,需要换一个 subid
      * wiki: http://open.weibo.com/wiki/C/2/datapush/comment
      * */
-    public function datapush_comment($source, $access_token, $subid, $since_id = false, $_version = 1)
+    public function datapush_comment($subid, $since_id = false, $_version = 1)
     {
         $params = array(
-            'source'       => $source,
-            'access_token' => $access_token,
             'subid'        => $subid,
             'since_id'     => $since_id,
         );
@@ -547,11 +540,9 @@ class biz_apis
      * @return array
      * wiki: http://open.weibo.com/wiki/C/2/statuses/public_timeline/biz
      * */
-    public function statuses_public_timeline_biz($source, $access_token, $count = 50, $page = 1, $base_app = 0)
+    public function statuses_public_timeline_biz($count = 50, $page = 1, $base_app = 0)
     {
         $params = array(
-            'source'       => $source,
-            'access_token' => $access_token,
             'count'        => $count,
             'page'         => $page,
             'base_app'     => $base_app,

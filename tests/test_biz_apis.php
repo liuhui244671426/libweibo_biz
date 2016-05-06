@@ -25,8 +25,8 @@ $uid1 = 1571420880;//猪头哥哥
 $stime = strtotime('2012-03-21 00:00:00').'000';
 $etime = strtotime('2012-03-22 00:00:00').'000';
 //任务参数
-$taskID = 12421179;
-$secret_key = '9efa06a6f23d0ddb7217';
+$taskID = 12465106;
+$secret_key = 'dd77fd9beaa328c679db';
 //订阅服务
 $sub_keywords = '阿里巴巴,楼市,股市';
 $sub_uids = '';
@@ -58,25 +58,27 @@ $sub_uids = '';
 //ok
 //$ret = $object->search_statuses_historical_create($keyword, false,false,false,$stime,$etime);
 //ok
-//$ret = $object->search_statuses_historical_check(APPKEY, $taskID, time(), $secret_key);
-//$ret = $object->search_statuses_historical_download(APPKEY, $taskID, time(), $secret_key);
+//$ret = $object->search_statuses_historical_check(3047579336, $taskID, time(), $secret_key);
+//
+//$ret = $object->search_statuses_historical_download(3047579336, $taskID, time(), $secret_key);
+
 //ok
-//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, false, false, false, false, '5674554136');
-//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY);
-//$ret = $object->subscribe_update_subscribe(SUBID, APPKEY, false, '魏则西');
+//$ret = $object->subscribe_update_subscribe(SUBID, false, false, false, false, '5674554136');
+//$ret = $object->subscribe_update_subscribe(SUBID);
+//$ret = $object->subscribe_update_subscribe(SUBID,'魏则西');
 //$ret = $object->subscribe_get_subscribe(SUBID);
 
-//$ret = $object->datapush_status(SUBID, APPKEY);
-$ret = $object->datapush_comment(APPKEY, TOKEN, SUBID);
+//$ret = $object->datapush_status(SUBID);
+//$ret = $object->datapush_comment(SUBID);
 
 //ok
-//$ret = $object->users_show_batch_other(APPKEY, TOKEN, $uid1);
+//$ret = $object->users_show_batch_other($uid1);
 //ok
-//$ret = $object->tags_tags_batch_other(APPKEY, TOKEN, $uid);
+//$ret = $object->tags_tags_batch_other($uid);
 //ok
-//$ret = $object->users_counts_batch_other(APPKEY, TOKEN, $uid1);
+//$ret = $object->users_counts_batch_other($uid1);
 //ok
-//$ret = $object->statuses_public_timeline_biz(APPKEY, TOKEN, 1);
+//$ret = $object->statuses_public_timeline_biz(1);
 
 
 //var_dump($ret);
