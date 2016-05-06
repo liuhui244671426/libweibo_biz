@@ -555,15 +555,15 @@ class biz_apis
     /* 微博内容读取接口 */
 
     /**
-     * 将数组中 false 字段删除
+     * 将数组中 false null '' 删除
      * */
     private function rid_false_for_array($arr)
     {
-        foreach ($arr as $k => $v) {
-            if ($v === false || $v === null) {
-                unset($arr[ $k ]);
+        return array_filter($arr, function($v){
+            if($v === null || $v === false || $v === ''){
+                return false;
             }
-        }
-        return $arr;
+            return true;
+        });
     }
 }
