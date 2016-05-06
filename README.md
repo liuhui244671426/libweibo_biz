@@ -39,9 +39,16 @@ include 'vender/autoload.php';
 
 //业务代码
 
-echo "hello biz_weibo";
+require "config.php";
 
-...
+$object = new biz_apis(APPKEY, APPSECRET, TOKEN);
+
+$ret = $object->place_user_timeline_other($uid);
+
+var_dump($ret);
+
+die;
+
 </pre>
 
 ##change log
