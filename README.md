@@ -46,15 +46,15 @@ echo "hello biz_weibo";
 
 ##change log
 <pre>
-1.搜索最近数据API
+1.搜索最近数据API <a href="http://open.weibo.com/wiki/Business_API文档#.E6.90.9C.E7.B4.A2.E6.9C.80.E8.BF.91.E6.95.B0.E6.8D.AE.EF.BC.88.E6.94.B6.E8.B4.B9.EF.BC.89">链接</a>
 
-2.微博内容数据API
+2.微博内容数据API <a href="http://open.weibo.com/wiki/Business_API文档#.E5.BE.AE.E5.8D.9A.E5.86.85.E5.AE.B9.E6.95.B0.E6.8D.AE.EF.BC.88.E6.94.B6.E8.B4.B9.EF.BC.89">链接</a>
 
-3.检索历史全量数据API
+3.检索历史全量数据API <a href="http://open.weibo.com/wiki/Business_API文档#.E6.A3.80.E7.B4.A2.E5.8E.86.E5.8F.B2.E5.85.A8.E9.87.8F.E6.95.B0.E6.8D.AE.EF.BC.88.E6.94.B6.E8.B4.B9.EF.BC.89">链接</a>
 
-4.微博用户数据API
+4.微博用户数据API <a href="http://open.weibo.com/wiki/Business_API文档#.E5.BE.AE.E5.8D.9A.E7.94.A8.E6.88.B7.E6.95.B0.E6.8D.AE.EF.BC.88.E5.85.8D.E8.B4.B9.EF.BC.89">链接</a>
 
-5.订阅服务API
+5.订阅服务API <a href="http://open.weibo.com/wiki/订阅服务手册">链接</a>
 
 </pre>
 
