@@ -39,9 +39,7 @@ composer install
  2.下载  <a href="https://github.com/xiaosier/libweibo">xiaosier/libweibo</a>
  
  3.手动解决依赖关系,顺序加载 saetv2.ex.class.php biz_apis.php biz_subscribe.php 等文件
- 
  </pre>
- 
  
 ## 使用
 
@@ -82,7 +80,6 @@ Have a bug? Please create an issue here on GitHub! <a href="https://github.com/l
 
 ## License
 ---------------------
-
 Copyright 2011 SINA, Inc. Copyright 2011 SAE
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
