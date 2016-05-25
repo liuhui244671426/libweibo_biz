@@ -12,7 +12,8 @@
         }
     ],
     "require": {
-	    "xiaosier/libweibo":"dev-master"
+	    "xiaosier/libweibo":"dev-master",
+        "codeception/codeception":"*"
     },
     "autoload": {
         "files": ["biz_apis.php"]

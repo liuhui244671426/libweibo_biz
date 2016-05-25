@@ -289,11 +289,11 @@ class biz_apis
      * 创建检索历史数据任务。
      * wiki:http://open.weibo.com/wiki/C/2/search/statuses/historical/create
      *
-     * @param int $starttime    搜索范围起始时间，取值为时间戳（精确到毫秒）。
+     * @param int $starttime    搜索范围起始时间，取值为时间戳（精确到毫秒,即后面加三个零）。
      * @param int $endtime      搜索范围结束时间，取值为时间戳（精确到毫秒，最晚不能晚过昨天的最后一秒）。
      * */
-    public function search_statuses_historical_create($q, $ids = false, $province = false, $city = false, $starttime = false,
-                                                      $endtime = false, $type = false, $hasv = false, $onlynum = 100)
+    public function search_statuses_historical_create($q, $starttime = false, $endtime = false, $ids = false, $province = false,
+                                                      $city = false, $type = false, $hasv = false, $onlynum = 100)
     {
         $params = array(
             'q'         => $q,

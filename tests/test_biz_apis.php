@@ -18,15 +18,15 @@ set_time_limit(0);
 
 
 $object = new biz_apis(APPKEY, APPSECRET, TOKEN);
-$keyword = urlencode('PHPER');
+$keyword = urlencode('php');
 $weiboID = '3953931363797697';
 $uid = 1748248662;
 $uid1 = 1571420880;//猪头哥哥
 $stime = strtotime('2012-03-21 00:00:00').'000';
 $etime = strtotime('2012-03-22 00:00:00').'000';
 //任务参数
-$taskID = 12465106;
-$secret_key = 'dd77fd9beaa328c679db';
+$taskID = 12476150;
+$secret_key = 'e71b4cf96b5d5ae0f2b8';
 //订阅服务
 $sub_keywords = '阿里巴巴,楼市,股市';
 $sub_uids = '';
@@ -81,7 +81,7 @@ $sub_uids = '';
 //$ret = $object->statuses_public_timeline_biz(1);
 
 
-//var_dump($ret);
-print_r($ret);
+var_dump($ret);
+//print_r($ret);
 
 die;

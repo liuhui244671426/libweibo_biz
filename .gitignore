@@ -1,3 +1,5 @@
 /vendor/
 /.idea/
 /tests/config.php
+tests/_output/*
+codeception.yml
