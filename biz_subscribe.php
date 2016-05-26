@@ -37,7 +37,7 @@ class biz_subscribe
             while (!feof($fp) && $chunk_size > 0) {
                 if($i <= 20){
                     $responseContent .= fgetss($fp, 4096);
-                    //echo $responseContent;
+
                     $i++;
                 } else {
                     $i = 1;
@@ -68,6 +68,10 @@ class biz_subscribe
         $content = explode("\r\n", $data);
 
         foreach ($content as $k => $v) {
+            //排除 长度字段及换行符
+            if(strlen($v) <= 3){
+                continue;
+            }
             $chunk = json_decode($v, true);
             if(!is_array($chunk)){
                 continue;
