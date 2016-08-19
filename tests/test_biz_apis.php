@@ -80,7 +80,8 @@ $sub_uids = '';
 //ok
 //$ret = $object->statuses_public_timeline_biz(1);
 
-
+//$ret = $object->comments_mentions_biz();
+$ret = $object->attitudes_to_me_biz();
 var_dump($ret);
 //print_r($ret);
 

@@ -551,6 +551,42 @@ class biz_apis
         return $ret;
     }
 
+    /**
+     * 获取当前登录用户收到赞的列表。
+     *
+     * wiki: http://open.weibo.com/wiki/C/2/attitudes/to_me/biz
+     * */
+    public function attitudes_to_me_biz($count = 50, $page = 1, $since_id = 0, $max_id = 0){
+        $params = array(
+            'count'        => $count,
+            'page'         => $page,
+            'since_id'     => $since_id,
+            'max_id'     => $max_id,
+        );
+        $ret = $this->oauth->get('attitudes/to_me/biz', $params);
+        return $ret;
+    }
+
+
+    /**
+     * todo 测试
+     * 获取@当前登录用户的评论
+     *
+     * @param int $base_app 是否只获取当前应用的数据。0为否（所有数据），1为是（仅当前应用），默认为0。
+     * @return array
+     * wiki: http://open.weibo.com/wiki/C/2/statuses/public_timeline/biz
+     * */
+    public function comments_mentions_biz($count = 50, $page = 1, $base_app = 0)
+    {
+        $params = array(
+            'count'        => $count,
+            'page'         => $page,
+            'base_app'     => $base_app,
+        );
+        $ret = $this->oauth->get('comments/mentions/biz', $params);
+        return $ret;
+    }
+
     //todo 待完善
     /* 微博内容读取接口 */
 
